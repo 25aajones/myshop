@@ -1,0 +1,22 @@
+<section class="zy-page">
+  <h1 class="zy-page-title">Search</h1>
+
+  <form action="/search" method="get" class="zy-search-form">
+    <input type="search" name="q" value="{{ search.terms }}" placeholder="Search apps and posts">
+    <button type="submit" class="zy-btn zy-btn-primary">Search</button>
+  </form>
+
+  {% if search.performed %}
+    <p class="zy-page-subtitle">{{ search.results_count }} result(s) for "{{ search.terms }}"</p>
+    <div class="zy-search-results">
+      {% for item in search.results %}
+        <article class="zy-search-result">
+          <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+          {% if item.object_type == 'product' %}
+            <p>{{ item.price | money }}</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>

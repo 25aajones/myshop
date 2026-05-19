@@ -1,0 +1,39 @@
+<section class="zy-product-page">
+  {% assign is_app = product.metafields.app.is_app %}
+  {% assign app_store_url = product.metafields.app.app_store_url %}
+  {% assign play_store_url = product.metafields.app.play_store_url %}
+
+  <div class="zy-product-layout">
+    <div class="zy-product-media-main">
+      {% if product.featured_image %}
+        <img src="{{ product.featured_image | img_url: '800x' }}" alt="{{ product.title }}">
+      {% endif %}
+    </div>
+    <div class="zy-product-info">
+      {% if is_app %}
+        <p class="zy-eyebrow">App</p>
+      {% endif %}
+      <h1>{{ product.title }}</h1>
+      <p class="zy-product-price-main">{{ product.price | money }}</p>
+      <div class="zy-product-description">
+        {{ product.description }}
+      </div>
+
+      {% if is_app %}
+        <div class="zy-app-buttons">
+          {% if app_store_url %}
+            <a href="{{ app_store_url }}" class="zy-btn zy-btn-primary zy-full-width" target="_blank" rel="noopener">View on App Store</a>
+          {% endif %}
+          {% if play_store_url %}
+            <a href="{{ play_store_url }}" class="zy-btn zy-btn-ghost zy-full-width" target="_blank" rel="noopener">View on Google Play</a>
+          {% endif %}
+        </div>
+      {% else %}
+        <form method="post" action="/cart/add" class="zy-product-form">
+          <input type="hidden" name="id" value="{{ product.first_available_variant.id }}">
+          <button type="submit" class="zy-btn zy-btn-primary">Add to cart</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+</section>

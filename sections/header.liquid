@@ -1,0 +1,17 @@
+<header class="zy-header">
+  <div class="zy-container zy-header-inner">
+    <a href="/" class="zy-logo">
+      <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}">
+      <span class="zy-logo-text">{{ shop.name }}</span>
+    </a>
+    <nav class="zy-nav">
+      <a href="/" class="zy-nav-link">Home</a>
+      <a href="/collections/all" class="zy-nav-link">Shop</a>
+      <a href="/blogs/news" class="zy-nav-link">Blog</a>
+      <a href="/pages/about" class="zy-nav-link">About Us</a>
+      <a href="/pages/contact" class="zy-nav-link">Contact</a>
+      <a href="/cart" class="zy-nav-link zy-cart-link">Cart ({{ cart.item_count }})</a>
+    </nav>
+  </div>
+</header>
+{% section 'cart-drawer' %}

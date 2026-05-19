@@ -1,0 +1,27 @@
+<article class="zy-article">
+  <header class="zy-article-header">
+    <p class="zy-post-meta">{{ article.published_at | date: "%B %d, %Y" }}</p>
+    <h1>{{ article.title }}</h1>
+  </header>
+
+  {% if settings.affiliate_disclosure != blank %}
+    <div class="zy-affiliate-disclosure">
+      <strong>Disclosure:</strong>
+      <p>{{ settings.affiliate_disclosure }}</p>
+    </div>
+  {% endif %}
+
+  <div class="zy-article-body">
+    {{ article.content }}
+  </div>
+
+  <section class="zy-article-cta">
+    <h2>{{ settings.blog_cta_heading }}</h2>
+    <p>{{ settings.blog_cta_body }}</p>
+    <form action="/contact#blog-cta" method="post" class="zy-newsletter">
+      <input type="hidden" name="contact[tags]" value="blog-cta,newsletter">
+      <input type="email" name="contact[email]" placeholder="Email address" required>
+      <button type="submit" class="zy-btn zy-btn-primary">Join Weekly Seeds</button>
+    </form>
+  </section>
+</article>

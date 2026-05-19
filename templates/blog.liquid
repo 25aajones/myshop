@@ -1,0 +1,23 @@
+<h1 class="zy-page-title">{{ blog.title }}</h1>
+<p class="zy-page-subtitle">Insights on digital excellence, sustainable development, and cultivating a focused engineering mindset.</p>
+
+<div class="zy-blog-layout">
+  <div class="zy-blog-main">
+    {% paginate blog.articles by 6 %}
+      {% for article in blog.articles %}
+        <article class="zy-post-card zy-post-card--row">
+          <div>
+            <p class="zy-post-meta">{{ article.published_at | date: "%B %d, %Y" }}</p>
+            <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+            <p>{{ article.excerpt | strip_html | truncate: 180 }}</p>
+            <a href="{{ article.url }}" class="zy-link">Read more →</a>
+          </div>
+        </article>
+      {% endfor %}
+      {{ paginate | default_pagination }}
+    {% endpaginate %}
+  </div>
+  <aside class="zy-blog-sidebar">
+    {% section 'updates-sidebar' %}
+  </aside>
+</div>
