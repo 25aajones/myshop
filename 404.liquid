@@ -1,0 +1,47 @@
+<article class="article-page">
+  <div class="article-hero">
+    {% if article.image %}
+      <div class="article-hero__img">
+        {{ article.image | image_url: width: 1400 | image_tag: loading: 'eager', alt: article.title }}
+      </div>
+    {% endif %}
+    <div class="container">
+      <div class="article-hero__content">
+        <div class="article-meta">
+          <a href="{{ blog.url }}" class="back-link">← Blog</a>
+          {% for tag in article.tags %}
+            <span class="blog-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <h1>{{ article.title }}</h1>
+        <div class="article-byline">
+          <span>By {{ article.author }}</span>
+          <time>{{ article.published_at | date: '%B %d, %Y' }}</time>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container article-body">
+    <div class="article-content rte">
+      {{ article.content }}
+    </div>
+
+    <aside class="article-sidebar">
+      <div class="sidebar-widget">
+        <h4>Updates to Apps</h4>
+        {% assign updates_blog = blogs['news'] %}
+        {% for a in updates_blog.articles limit: 5 %}
+          <a href="{{ a.url }}" class="sidebar-post">
+            <span>{{ a.title | truncate: 40 }}</span>
+            <time>{{ a.published_at | date: '%b %d' }}</time>
+          </a>
+        {% endfor %}
+      </div>
+    </aside>
+  </div>
+
+  <div class="container article-footer">
+    <a href="{{ blog.url }}" class="btn btn--outline">← All Posts</a>
+  </div>
+</article>

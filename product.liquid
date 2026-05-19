@@ -1,0 +1,88 @@
+# Ziyu Development — Shopify Theme
+
+A clean, editorial Shopify theme built from the wireframe sketch.
+
+## File Structure
+
+```
+ziyu-theme/
+├── layout/
+│   └── theme.liquid          # Main HTML wrapper (every page uses this)
+├── templates/
+│   ├── index.liquid          # Homepage
+│   ├── blog.liquid           # Blog listing
+│   ├── article.liquid        # Single blog post
+│   ├── collection.liquid     # Products/Apps grid
+│   ├── product.liquid        # Single app detail
+│   ├── page.liquid           # Generic pages (About, Contact, etc.)
+│   └── 404.liquid            # Error page
+├── sections/
+│   ├── header.liquid         # Sticky navigation
+│   ├── footer.liquid         # Footer with links
+│   ├── hero-carousel.liquid  # Homepage slideshow
+│   ├── about-strip.liquid    # About + Goals section
+│   ├── apps-section.liquid   # Apps grid + Coming Soon
+│   └── blog-preview.liquid   # Blog posts preview
+├── snippets/
+│   ├── page-about.liquid     # About page layout
+│   └── page-contact.liquid   # Contact page + form
+├── assets/
+│   ├── theme.css             # All styles
+│   └── theme.js              # Carousel, nav, filters
+├── config/
+│   ├── settings_schema.json  # Theme settings
+│   └── settings_data.json    # Default values
+└── locales/
+    └── en.default.json       # English strings
+```
+
+## Setup Steps
+
+### 1. Upload to GitHub
+- Create a new GitHub repository (e.g. `ziyu-shopify-theme`)
+- Push all these files to the repo
+
+### 2. Connect to Shopify
+- In your Shopify admin go to: **Online Store → Themes**
+- Click **Add theme → Connect from GitHub**
+- Authorize Shopify, select your repo and branch (main)
+- Click **Save**
+
+### 3. Create Pages in Shopify Admin
+Go to **Online Store → Pages** and create:
+- **About Us** (handle: `about`)
+- **Contact** (handle: `contact`)
+- **Privacy Policy** (handle: `privacy-policy`)
+- **Terms of Service** (handle: `terms-of-service`)
+- **App Use** (handle: `app-use`)
+
+### 4. Create a Blog
+Go to **Online Store → Blog Posts → Manage Blogs**
+- Create a blog called **"News"** (handle: `news`)
+- Start adding posts!
+
+### 5. Set Up Apps as Products
+Go to **Products → Add product** for each app:
+- Title = App name
+- Description = App description  
+- Image = App icon (first image), then screenshots
+- Add metafield `custom.app_store_url` for the App Store link
+- Add to a Collection called **"Apps"** (handle: `apps`)
+
+### 6. Configure Navigation
+Go to **Online Store → Navigation**:
+- **Main Menu**: Home, Blog, Products (`/collections/apps`), About, Contact
+- **Footer Menu**: Privacy Policy, Terms of Service, App Use
+
+### 7. Customize Homepage Sections
+Go to **Online Store → Themes → Customize**:
+- Add slides to the Hero Carousel
+- Add goals to the About Strip
+- Point the Apps Section to your "Apps" collection
+- Point the Blog Preview to your "News" blog
+
+### 8. Publish
+Click **Publish** in the theme editor — you're live!
+
+## Auto-Deploy from GitHub
+Every time you push changes to GitHub, Shopify will automatically update the theme. No manual re-upload needed.
