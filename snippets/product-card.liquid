@@ -1,0 +1,15 @@
+<div class="card product-card">
+
+  <a href="{{ product.url }}">
+    <img src="{{ product.featured_image | image_url }}" alt="{{ product.title }}">
+  </a>
+
+  <h3>{{ product.title }}</h3>
+
+  <p>{{ product.price | money }}</p>
+
+  <a href="{{ product.url }}" class="btn btn-primary">
+    View Product
+  </a>
+
+</div>

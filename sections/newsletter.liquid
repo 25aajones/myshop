@@ -1,0 +1,26 @@
+<section class="section">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Stay Updated</h2>
+      <p>
+        Get updates on new apps, products, launches, and exclusive drops.
+      </p>
+    </div>
+
+    {% form 'customer' %}
+      <div class="newsletter-form">
+        <input
+          type="email"
+          name="contact[email]"
+          placeholder="Enter your email"
+        >
+
+        <button type="submit">
+          Subscribe
+        </button>
+      </div>
+    {% endform %}
+
+  </div>
+</section>

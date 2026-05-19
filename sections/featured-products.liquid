@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Trending Products</h2>
+      <p>Popular tech, tools, and merch from Ziyu Development.</p>
+    </div>
+
+    <div class="grid">
+      {% for product in collections.all.products limit: 4 %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

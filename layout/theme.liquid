@@ -1,18 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ page_title }} – {{ shop.name }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ shop.name }}</title>
+
   {{ content_for_header }}
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+
+  {{ 'base.css' | asset_url | stylesheet_tag }}
 </head>
-<body class="ziyu-body">
-  {% section 'header' %}
-  <main class="page-wrapper">
-    {{ content_for_layout }}
-  </main>
-  {% section 'footer' %}
-  <script src="{{ 'theme.js' | asset_url }}"></script>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrapper">
+    <a href="/" class="logo">Ziyu Development</a>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/collections/all">Shop</a>
+      <a href="/pages/about">About</a>
+      <a href="/blogs/news">Blog</a>
+      <a href="/pages/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  {{ content_for_layout }}
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>Ziyu Development</h3>
+      <p>Apps, tech products, and modern digital experiences.</p>
+    </div>
+
+    <div>
+      <h4>Links</h4>
+      <a href="/">Home</a>
+      <a href="/collections/all">Shop</a>
+      <a href="/pages/about">About</a>
+      <a href="/pages/contact">Contact</a>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 Ziyu Development
+  </div>
+</footer>
+
+{{ 'theme.js' | asset_url | script_tag }}
+
 </body>
 </html>
