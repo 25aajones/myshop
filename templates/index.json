@@ -9,8 +9,26 @@
     "products": {
       "type": "featured-products"
     },
+    "promo": {
+      "type": "promo-banner"
+    },
+    "features": {
+      "type": "feature-highlights"
+    },
+    "testimonials": {
+      "type": "testimonials"
+    },
+    "collections": {
+      "type": "collection-marketing"
+    },
+    "faq": {
+      "type": "faq-section"
+    },
     "about": {
       "type": "about-preview"
+    },
+    "custom": {
+      "type": "custom-html"
     },
     "newsletter": {
       "type": "newsletter"
@@ -20,7 +38,13 @@
     "hero",
     "categories",
     "products",
+    "promo",
+    "features",
+    "testimonials",
+    "collections",
+    "faq",
     "about",
+    "custom",
     "newsletter"
   ]
 }

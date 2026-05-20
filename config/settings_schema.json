@@ -1,0 +1,286 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "logo_text",
+        "label": "Logo text",
+        "default": "Ziyu Development"
+      },
+      {
+        "type": "font",
+        "id": "heading_font",
+        "label": "Heading font",
+        "default": "system"
+      },
+      {
+        "type": "font",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "system"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Page background",
+        "default": "#0a0a0a"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Page text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "surface_color",
+        "label": "Section surface",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "border_color",
+        "label": "Border color",
+        "default": "#222222"
+      },
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Primary accent",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary accent",
+        "default": "#10b981"
+      },
+      {
+        "type": "textarea",
+        "id": "footer_about",
+        "label": "Footer about text",
+        "default": "Apps, tech products, and modern digital experiences."
+      }
+    ]
+  },
+  {
+    "name": "Header navigation",
+    "settings": [
+      {
+        "type": "text",
+        "id": "nav_label_1",
+        "label": "Nav item 1 text",
+        "default": "Home"
+      },
+      {
+        "type": "url",
+        "id": "nav_url_1",
+        "label": "Nav item 1 URL",
+        "default": "/"
+      },
+      {
+        "type": "text",
+        "id": "nav_label_2",
+        "label": "Nav item 2 text",
+        "default": "Shop"
+      },
+      {
+        "type": "url",
+        "id": "nav_url_2",
+        "label": "Nav item 2 URL",
+        "default": "/collections/all"
+      },
+      {
+        "type": "text",
+        "id": "nav_label_3",
+        "label": "Nav item 3 text",
+        "default": "Blog"
+      },
+      {
+        "type": "url",
+        "id": "nav_url_3",
+        "label": "Nav item 3 URL",
+        "default": "/blogs/news"
+      },
+      {
+        "type": "text",
+        "id": "nav_label_4",
+        "label": "Nav item 4 text",
+        "default": "Contact"
+      },
+      {
+        "type": "url",
+        "id": "nav_url_4",
+        "label": "Nav item 4 URL",
+        "default": "/pages/contact"
+      },
+      {
+        "type": "text",
+        "id": "nav_label_5",
+        "label": "Nav item 5 text",
+        "default": "Support"
+      },
+      {
+        "type": "url",
+        "id": "nav_url_5",
+        "label": "Nav item 5 URL",
+        "default": "/pages/support"
+      },
+      {
+        "type": "text",
+        "id": "submenu_label",
+        "label": "Submenu label",
+        "default": "Shop"
+      },
+      {
+        "type": "text",
+        "id": "submenu_link_1_label",
+        "label": "Submenu link 1 label",
+        "default": "All products"
+      },
+      {
+        "type": "url",
+        "id": "submenu_link_1_url",
+        "label": "Submenu link 1 URL",
+        "default": "/collections/all"
+      },
+      {
+        "type": "text",
+        "id": "submenu_link_2_label",
+        "label": "Submenu link 2 label",
+        "default": "Featured"
+      },
+      {
+        "type": "url",
+        "id": "submenu_link_2_url",
+        "label": "Submenu link 2 URL",
+        "default": "/collections/frontpage"
+      },
+      {
+        "type": "text",
+        "id": "submenu_link_3_label",
+        "label": "Submenu link 3 label",
+        "default": "Our story"
+      },
+      {
+        "type": "url",
+        "id": "submenu_link_3_url",
+        "label": "Submenu link 3 URL",
+        "default": "/pages/about"
+      }
+    ]
+  },
+  {
+    "name": "Footer links",
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_link_1_label",
+        "label": "Footer link 1 label",
+        "default": "Home"
+      },
+      {
+        "type": "url",
+        "id": "footer_link_1_url",
+        "label": "Footer link 1 URL",
+        "default": "/"
+      },
+      {
+        "type": "text",
+        "id": "footer_link_2_label",
+        "label": "Footer link 2 label",
+        "default": "Shop"
+      },
+      {
+        "type": "url",
+        "id": "footer_link_2_url",
+        "label": "Footer link 2 URL",
+        "default": "/collections/all"
+      },
+      {
+        "type": "text",
+        "id": "footer_link_3_label",
+        "label": "Footer link 3 label",
+        "default": "About"
+      },
+      {
+        "type": "url",
+        "id": "footer_link_3_url",
+        "label": "Footer link 3 URL",
+        "default": "/pages/about"
+      }
+    ]
+  },
+  {
+    "name": "Promotion settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "announcement_message",
+        "label": "Announcement message",
+        "default": "Free shipping on orders over $50"
+      },
+      {
+        "type": "url",
+        "id": "announcement_url",
+        "label": "Announcement link URL",
+        "default": "/collections/all"
+      },
+      {
+        "type": "text",
+        "id": "announcement_button_text",
+        "label": "Announcement button label",
+        "default": "Shop now"
+      },
+      {
+        "type": "checkbox",
+        "id": "popup_enable",
+        "label": "Enable promo popup",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "popup_headline",
+        "label": "Popup headline",
+        "default": "Subscribe and save 15%"
+      },
+      {
+        "type": "textarea",
+        "id": "popup_text",
+        "label": "Popup copy",
+        "default": "Join our mailing list for early access to launches, flash sales, and exclusive offers."
+      },
+      {
+        "type": "text",
+        "id": "popup_button_text",
+        "label": "Popup button label",
+        "default": "Join now"
+      },
+      {
+        "type": "url",
+        "id": "popup_button_url",
+        "label": "Popup button URL",
+        "default": "/pages/newsletter"
+      },
+      {
+        "type": "number",
+        "id": "popup_delay",
+        "label": "Popup delay (seconds)",
+        "default": 3,
+        "min": 0,
+        "max": 15,
+        "step": 1
+      },
+      {
+        "type": "number",
+        "id": "popup_repeat_days",
+        "label": "Repeat popup after days",
+        "default": 7,
+        "min": 1,
+        "max": 30,
+        "step": 1
+      }
+    ]
+  }
+]

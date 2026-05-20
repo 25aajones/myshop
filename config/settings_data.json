@@ -1,0 +1,53 @@
+{
+  "current": {
+    "color_scheme": "Default"
+  },
+  "presets": {
+    "Default": {}
+  },
+  "settings": {
+    "logo_text": "Ziyu Development",
+    "heading_font": "system",
+    "body_font": "system",
+    "background_color": "#0a0a0a",
+    "text_color": "#ffffff",
+    "surface_color": "#111111",
+    "border_color": "#222222",
+    "primary_color": "#ffffff",
+    "secondary_color": "#10b981",
+    "footer_about": "Apps, tech products, and modern digital experiences.",
+    "nav_label_1": "Home",
+    "nav_url_1": "/",
+    "nav_label_2": "Shop",
+    "nav_url_2": "/collections/all",
+    "nav_label_3": "Blog",
+    "nav_url_3": "/blogs/news",
+    "nav_label_4": "Contact",
+    "nav_url_4": "/pages/contact",
+    "nav_label_5": "Support",
+    "nav_url_5": "/pages/support",
+    "submenu_label": "Shop",
+    "submenu_link_1_label": "All products",
+    "submenu_link_1_url": "/collections/all",
+    "submenu_link_2_label": "Featured",
+    "submenu_link_2_url": "/collections/frontpage",
+    "submenu_link_3_label": "Our story",
+    "submenu_link_3_url": "/pages/about",
+    "announcement_message": "Free shipping on orders over $50",
+    "announcement_url": "/collections/all",
+    "announcement_button_text": "Shop now",
+    "popup_enable": false,
+    "popup_headline": "Subscribe and save 15%",
+    "popup_text": "Join our mailing list for early access to launches, flash sales, and exclusive offers.",
+    "popup_button_text": "Join now",
+    "popup_button_url": "/pages/newsletter",
+    "popup_delay": 3,
+    "popup_repeat_days": 7,
+    "footer_link_1_label": "Home",
+    "footer_link_1_url": "/",
+    "footer_link_2_label": "Shop",
+    "footer_link_2_url": "/collections/all",
+    "footer_link_3_label": "About",
+    "footer_link_3_url": "/pages/about"
+  }
+}

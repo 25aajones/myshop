@@ -1,0 +1,42 @@
+<section class="section collection-page">
+  <div class="container">
+    <div class="section-title">
+      <h1>{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <p>{{ collection.description }}</p>
+      {% endif %}
+    </div>
+
+    {% if collection.products_count > 0 %}
+      <div class="grid">
+        {% for product in collection.products limit: section.settings.product_limit %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty-state">No products have been assigned to this collection yet.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection product grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Products to show",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection products"
+    }
+  ]
+}
+{% endschema %}

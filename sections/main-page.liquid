@@ -1,0 +1,37 @@
+<section class="section page-main">
+  <div class="container page-content">
+    <div class="section-title">
+      <h1>{{ section.settings.heading_text | default: page.title }}</h1>
+      {% if section.settings.show_page_content %}
+        <div class="rich-text page-description">
+          {{ page.content }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Page heading override",
+      "default": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "show_page_content",
+      "label": "Show page content",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main page"
+    }
+  ]
+}
+{% endschema %}

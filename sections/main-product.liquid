@@ -1,0 +1,83 @@
+<section class="section product-detail">
+  <div class="container product-grid">
+    <div class="product-gallery">
+      {% if product.media.size > 0 %}
+        {% for media in product.media limit: 4 %}
+          {% if media.preview_image != blank %}
+            <div class="product-image">
+              <img src="{{ media.preview_image | image_url: width: 1200 }}" alt="{{ product.title }}">
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <div class="product-image empty">No image available</div>
+      {% endif %}
+    </div>
+
+    <div class="product-info">
+      <h1>{{ product.title }}</h1>
+      {% if section.settings.show_vendor and product.vendor != blank %}
+        <p class="product-vendor">{{ product.vendor }}</p>
+      {% endif %}
+      <p class="product-price">{{ product.price | money }}</p>
+      <div class="product-meta">
+        {% if product.compare_at_price > product.price %}
+          <span class="sale-label">On sale</span>
+        {% endif %}
+        <span>{{ product.available ? 'In stock' : 'Sold out' }}</span>
+      </div>
+
+      {% form 'product', product %}
+        {% if product.variants.size > 1 %}
+          <label for="ProductSelect-product">{{ section.settings.variant_label }}</label>
+          <select id="ProductSelect-product" name="id" class="variant-select">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}">{{ variant.title }}{% if variant.available == false %} - sold out{% endif %}</option>
+            {% endfor %}
+          </select>
+        {% else %}
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary">
+          {{ section.settings.button_label }}
+        </button>
+      {% endform %}
+
+      <div class="rich-text product-description">
+        {{ product.description }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product detail",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Add to cart button label",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "variant_label",
+      "label": "Variant selector label",
+      "default": "Choose your option"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show vendor name",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product page"
+    }
+  ]
+}
+{% endschema %}

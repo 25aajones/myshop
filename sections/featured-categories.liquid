@@ -1,33 +1,81 @@
-<section class="section">
+<section class="section featured-categories">
   <div class="container">
-
     <div class="section-title">
-      <h2>Featured Categories</h2>
+      <h2>{{ section.settings.heading | default: 'Featured Categories' }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p>{{ section.settings.subheading }}</p>
+      {% endif %}
     </div>
 
     <div class="grid">
-
-      <div class="card">
-        <h3>Apps & Software</h3>
-        <p>
-          Productivity apps, digital tools, and modern software experiences.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Computer & Gaming Gear</h3>
-        <p>
-          Tech accessories, setups, and performance-focused products.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Print-on-Demand Merch</h3>
-        <p>
-          Minimal creator apparel and aesthetic merchandise.
-        </p>
-      </div>
-
+      {% for block in section.blocks %}
+        <div class="card category-card">
+          <h3>{{ block.settings.card_title }}</h3>
+          <p>{{ block.settings.card_text }}</p>
+          {% if block.settings.card_link != blank %}
+            <a href="{{ block.settings.card_link }}" class="btn btn-secondary btn-inline">
+              {{ block.settings.card_button_label | default: 'Learn More' }}
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
+
+{% schema %}
+{
+  "name": "Featured categories",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Categories"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Highlight your core collections and product stories with featured category cards."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category_card",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card title",
+          "default": "App collections"
+        },
+        {
+          "type": "textarea",
+          "id": "card_text",
+          "label": "Card text",
+          "default": "A curated set of products and services that help your business grow."
+        },
+        {
+          "type": "url",
+          "id": "card_link",
+          "label": "Card link"
+        },
+        {
+          "type": "text",
+          "id": "card_button_label",
+          "label": "Button label",
+          "default": "Explore"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Featured categories"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,87 @@
+<section class="section feature-highlights reveal-on-scroll">
+  <div class="container">
+    <div class="section-title">
+      <h2>{{ section.settings.heading | default: 'Built for every growth strategy' }}</h2>
+      <p>{{ section.settings.subheading | default: 'Showcase product benefits, launch features, and marketing advantages with flexible cards that scale across campaigns.' }}</p>
+    </div>
+
+    <div class="feature-cards">
+      {% for block in section.blocks %}
+        <div class="feature-card">
+          <p class="eyebrow">{{ block.settings.badge | default: 'Growth' }}</p>
+          <h3>{{ block.settings.feature_title }}</h3>
+          <p>{{ block.settings.feature_text }}</p>
+          {% if block.settings.feature_link != blank %}
+            <a href="{{ block.settings.feature_link }}" class="btn btn-secondary btn-inline">
+              {{ block.settings.feature_button | default: 'Learn more' }}
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature highlights",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built for every growth strategy"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Showcase product benefits, launch features, and marketing advantages with flexible cards that scale across campaigns."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": "Feature card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge text",
+          "default": "Strategy"
+        },
+        {
+          "type": "text",
+          "id": "feature_title",
+          "label": "Feature title",
+          "default": "Built for conversions"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_text",
+          "label": "Feature text",
+          "default": "Turn visitors into customers with compelling offers, clear value, and fast checkout flows."
+        },
+        {
+          "type": "text",
+          "id": "feature_button",
+          "label": "Button label",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "feature_link",
+          "label": "Button URL",
+          "default": "/pages/about"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Feature highlights"
+    }
+  ]
+}
+{% endschema %}

@@ -3,24 +3,87 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ shop.name }}</title>
+  <title>{{ page_title }}</title>
 
   {{ content_for_header }}
+
+  <style>
+    :root {
+      --page-bg: {{ settings.background_color }};
+      --page-text: {{ settings.text_color }};
+      --surface-bg: {{ settings.surface_color }};
+      --border-color: {{ settings.border_color }};
+      --primary-color: {{ settings.primary_color }};
+      --secondary-color: {{ settings.secondary_color }};
+      --heading-font: {{ settings.heading_font }};
+      --body-font: {{ settings.body_font }};
+    }
+  </style>
 
   {{ 'base.css' | asset_url | stylesheet_tag }}
 </head>
 <body>
 
+{% if settings.popup_enable %}
+  <div class="promo-popup" data-popup data-popup-delay="{{ settings.popup_delay | default: 3 }}" data-popup-repeat-days="{{ settings.popup_repeat_days | default: 7 }}" aria-hidden="true">
+    <aside class="promo-popup-card">
+      <button class="promo-popup-close" type="button" aria-label="Close promotional popup">×</button>
+      <p class="eyebrow">Limited offer</p>
+      <h2>{{ settings.popup_headline | default: 'Subscribe and save 15%' }}</h2>
+      <p>{{ settings.popup_text | default: 'Join our mailing list for early access to launches, flash sales, and exclusive offers.' }}</p>
+      <div class="button-group">
+        <a href="{{ settings.popup_button_url | default: '/pages/newsletter' }}" class="btn btn-primary">
+          {{ settings.popup_button_text | default: 'Join now' }}
+        </a>
+      </div>
+    </aside>
+  </div>
+{% endif %}
+
+{% if settings.announcement_message != blank %}
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <p>{{ settings.announcement_message }}</p>
+      {% if settings.announcement_url != blank %}
+        <a href="{{ settings.announcement_url }}" class="announcement-link">
+          {{ settings.announcement_button_text | default: 'Shop now' }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+
 <header class="site-header">
   <div class="container nav-wrapper">
-    <a href="/" class="logo">Ziyu Development</a>
+    <a href="/" class="logo">{{ settings.logo_text | default: shop.name }}</a>
 
-    <nav>
-      <a href="/">Home</a>
-      <a href="/collections/all">Shop</a>
-      <a href="/pages/about">About</a>
-      <a href="/blogs/news">Blog</a>
-      <a href="/pages/contact">Contact</a>
+    <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="site-navigation">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav id="site-navigation" class="site-nav" data-menu>
+      <a href="{{ settings.nav_url_1 | default: '/' }}">{{ settings.nav_label_1 | default: 'Home' }}</a>
+
+      <div class="nav-dropdown" data-dropdown>
+        <button class="submenu-toggle" aria-expanded="false" type="button">
+          {{ settings.submenu_label | default: settings.nav_label_2 | default: 'Shop' }}
+          <span class="dropdown-caret"></span>
+        </button>
+        <div class="submenu-panel">
+          <a href="{{ settings.submenu_link_1_url | default: '/collections/all' }}">{{ settings.submenu_link_1_label | default: 'All products' }}</a>
+          <a href="{{ settings.submenu_link_2_url | default: '/collections/frontpage' }}">{{ settings.submenu_link_2_label | default: 'Featured' }}</a>
+          <a href="{{ settings.submenu_link_3_url | default: '/pages/about' }}">{{ settings.submenu_link_3_label | default: 'Our story' }}</a>
+        </div>
+      </div>
+
+      <a href="{{ settings.nav_url_3 | default: '/blogs/news' }}">{{ settings.nav_label_3 | default: 'Blog' }}</a>
+      <a href="{{ settings.nav_url_4 | default: '/pages/contact' }}">{{ settings.nav_label_4 | default: 'Contact' }}</a>
+      {% if settings.nav_label_5 != blank %}
+        <a href="{{ settings.nav_url_5 | default: '/pages/support' }}">{{ settings.nav_label_5 }}</a>
+      {% endif %}
     </nav>
   </div>
 </header>
@@ -29,26 +92,7 @@
   {{ content_for_layout }}
 </main>
 
-<footer class="footer">
-  <div class="container footer-grid">
-    <div>
-      <h3>Ziyu Development</h3>
-      <p>Apps, tech products, and modern digital experiences.</p>
-    </div>
-
-    <div>
-      <h4>Links</h4>
-      <a href="/">Home</a>
-      <a href="/collections/all">Shop</a>
-      <a href="/pages/about">About</a>
-      <a href="/pages/contact">Contact</a>
-    </div>
-  </div>
-
-  <div class="copyright">
-    © 2026 Ziyu Development
-  </div>
-</footer>
+{% render 'footer' %}
 
 {{ 'theme.js' | asset_url | script_tag }}
 

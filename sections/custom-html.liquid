@@ -1,0 +1,56 @@
+<section class="section custom-html-section reveal-on-scroll">
+  <div class="container custom-html-card">
+    <div class="section-title">
+      <h2>{{ section.settings.heading | default: 'Customize this section for your next campaign' }}</h2>
+    </div>
+
+    <div class="rich-text">
+      {{ section.settings.rich_text }}
+    </div>
+
+    {% if section.settings.button_label != blank and section.settings.button_url != blank %}
+      <div class="button-group" style="margin-top: 28px;">
+        <a href="{{ section.settings.button_url }}" class="btn btn-primary">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Customize this section for your next campaign"
+    },
+    {
+      "type": "textarea",
+      "id": "rich_text",
+      "label": "Rich text content",
+      "default": "Add marketing copy, product launch details, bundle promotions, or anything your campaign needs."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "default": "/pages/about"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom content"
+    }
+  ]
+}
+{% endschema %}

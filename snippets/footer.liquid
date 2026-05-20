@@ -1,0 +1,19 @@
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>{{ settings.logo_text | default: shop.name }}</h3>
+      <p>{{ settings.footer_about }}</p>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <a href="{{ settings.footer_link_1_url | default: '/' }}">{{ settings.footer_link_1_label | default: 'Home' }}</a>
+      <a href="{{ settings.footer_link_2_url | default: '/collections/all' }}">{{ settings.footer_link_2_label | default: 'Shop' }}</a>
+      <a href="{{ settings.footer_link_3_url | default: '/pages/about' }}">{{ settings.footer_link_3_label | default: 'About' }}</a>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © {{ 'now' | date: '%Y' }} {{ settings.logo_text | default: shop.name }}
+  </div>
+</footer>

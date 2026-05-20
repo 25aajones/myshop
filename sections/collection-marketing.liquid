@@ -1,0 +1,99 @@
+<section class="section collection-marketing reveal-on-scroll">
+  <div class="container">
+    <div class="section-title">
+      <h2>{{ section.settings.heading | default: 'Shop by collection' }}</h2>
+      <p>{{ section.settings.subheading | default: 'Highlight featured collections with marketing cards and shop links for targeted campaigns.' }}</p>
+    </div>
+
+    <div class="marketing-grid">
+      {% for block in section.blocks %}
+        <article class="marketing-card">
+          {% if block.settings.image != blank %}
+            <div class="marketing-image">
+              <img src="{{ block.settings.image | image_url: width: 1000 }}" alt="{{ block.settings.collection_title }}">
+            </div>
+          {% endif %}
+          <div class="marketing-copy">
+            <p class="eyebrow">{{ block.settings.tagline | default: 'Collection' }}</p>
+            <h3>{{ block.settings.collection_title }}</h3>
+            <p>{{ block.settings.collection_description }}</p>
+            {% if block.settings.collection_url != blank %}
+              <a href="{{ block.settings.collection_url }}" class="btn btn-secondary btn-inline">
+                {{ block.settings.button_label | default: 'Browse collection' }}
+              </a>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection marketing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop by collection"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Highlight featured collections with marketing cards and shop links for targeted campaigns."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tagline",
+          "label": "Tagline",
+          "default": "Trending"
+        },
+        {
+          "type": "text",
+          "id": "collection_title",
+          "label": "Collection title",
+          "default": "Best sellers"
+        },
+        {
+          "type": "textarea",
+          "id": "collection_description",
+          "label": "Description",
+          "default": "Focus visitors on the collection that matters most for your current sale or launch."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card image"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Browse collection"
+        },
+        {
+          "type": "url",
+          "id": "collection_url",
+          "label": "Collection URL",
+          "default": "/collections/all"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Collection marketing"
+    }
+  ]
+}
+{% endschema %}
