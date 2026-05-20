@@ -2,6 +2,9 @@
   <div class="container page-content">
     <div class="section-title">
       <h1>{{ section.settings.heading_text | default: page.title }}</h1>
+      {% if section.settings.subtitle_text != blank %}
+        <p class="section-subtitle">{{ section.settings.subtitle_text }}</p>
+      {% endif %}
       {% if section.settings.show_page_content %}
         <div class="rich-text page-description">
           {{ page.content }}
@@ -9,7 +12,7 @@
       {% endif %}
 
       {% if section.settings.page_button_text != blank and section.settings.page_button_url != blank %}
-        <div class="button-group page-button-group">
+        <div class="button-group page-button-group {{ section.settings.page_button_alignment }}">
           <a href="{{ section.settings.page_button_url }}" class="btn {% if section.settings.page_button_style == 'secondary' %}btn-secondary{% else %}btn-primary{% endif %}">
             {{ section.settings.page_button_text }}
           </a>
@@ -37,9 +40,32 @@
     },
     {
       "type": "text",
+      "id": "subtitle_text",
+      "label": "Page subtitle",
+      "default": "Write a short intro, summary or highlight for this page."
+    },
+    {
+      "type": "text",
       "id": "page_button_text",
       "label": "Button text",
       "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "page_button_url",
+      "label": "Button URL",
+      "default": "#"
+    },
+    {
+      "type": "select",
+      "id": "page_button_alignment",
+      "label": "Button alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
     },
     {
       "type": "url",

@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var menu = document.querySelector('[data-menu]');
   var dropdowns = document.querySelectorAll('[data-dropdown]');
   var revealItems = document.querySelectorAll('.reveal-on-scroll');
+  var searchToggle = document.querySelector('.search-toggle');
+  var headerSearch = document.getElementById('header-search');
 
   if (toggle && menu) {
     toggle.addEventListener('click', function () {
@@ -46,6 +48,30 @@ document.addEventListener('DOMContentLoaded', function () {
       dropdown.classList.toggle('open');
     });
   });
+
+  if (searchToggle && headerSearch) {
+    searchToggle.addEventListener('click', function () {
+      var expanded = searchToggle.getAttribute('aria-expanded') === 'true';
+      searchToggle.setAttribute('aria-expanded', String(!expanded));
+      headerSearch.hidden = expanded;
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.header-search') && !event.target.closest('.search-toggle')) {
+        headerSearch.hidden = true;
+        if (searchToggle) {
+          searchToggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        headerSearch.hidden = true;
+        searchToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
   var popup = document.querySelector('[data-popup]');
   var popupClose = document.querySelector('.promo-popup-close');

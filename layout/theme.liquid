@@ -142,27 +142,32 @@
       <span class="sr-only">Menu</span>
     </button>
 
+    <div class="site-tools">
+      <button class="icon-button search-toggle" type="button" aria-expanded="false" aria-controls="header-search">
+        <span class="sr-only">Search</span>
+        🔍
+      </button>
+      <a href="{{ settings.shop_url | default: '/collections/all' }}" class="icon-button" aria-label="Shop">🛍️</a>
+      <a href="{{ settings.inbox_url | default: '/pages/contact' }}" class="icon-button" aria-label="Inbox">📥</a>
+    </div>
     <nav id="site-navigation" class="site-nav" data-menu>
       <a href="{{ settings.nav_url_1 | default: '/' }}">{{ settings.nav_label_1 | default: 'Home' }}</a>
-
-      <div class="nav-dropdown" data-dropdown>
-        <button class="submenu-toggle" aria-expanded="false" type="button">
-          {{ settings.submenu_label | default: settings.nav_label_2 | default: 'Shop' }}
-          <span class="dropdown-caret"></span>
-        </button>
-        <div class="submenu-panel">
-          <a href="{{ settings.submenu_link_1_url | default: '/collections/all' }}">{{ settings.submenu_link_1_label | default: 'All products' }}</a>
-          <a href="{{ settings.submenu_link_2_url | default: '/collections/frontpage' }}">{{ settings.submenu_link_2_label | default: 'Featured' }}</a>
-          <a href="{{ settings.submenu_link_3_url | default: '/pages/about' }}">{{ settings.submenu_link_3_label | default: 'Our story' }}</a>
-        </div>
-      </div>
-
+      <a href="{{ settings.nav_url_2 | default: '/collections/all' }}">{{ settings.nav_label_2 | default: 'Shop' }}</a>
       <a href="{{ settings.nav_url_3 | default: '/blogs/news' }}">{{ settings.nav_label_3 | default: 'Blog' }}</a>
       <a href="{{ settings.nav_url_4 | default: '/pages/contact' }}">{{ settings.nav_label_4 | default: 'Contact' }}</a>
       {% if settings.nav_label_5 != blank %}
         <a href="{{ settings.nav_url_5 | default: '/pages/support' }}">{{ settings.nav_label_5 }}</a>
       {% endif %}
     </nav>
+  </div>
+  <div id="header-search" class="header-search" hidden>
+    <div class="container search-panel">
+      <form action="/search" method="get" class="search-form-header">
+        <label for="header-search-input" class="sr-only">Search</label>
+        <input id="header-search-input" type="search" name="q" placeholder="Search products, pages, articles..." aria-label="Search site">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
   </div>
 </header>
 

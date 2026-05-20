@@ -147,16 +147,6 @@
     ]
   },
   {
-    "name": "Footer links",
-    "settings": [
-      {
-        "type": "text",
-        "id": "footer_link_1_label",
-        "label": "Footer link 1 label",
-        "default": "Home"
-      },
-
-  {
     "name": "Header navigation",
     "settings": [
       {
@@ -218,6 +208,18 @@
         "id": "nav_url_5",
         "label": "Nav item 5 URL",
         "default": "/pages/support"
+      },
+      {
+        "type": "url",
+        "id": "shop_url",
+        "label": "Shop icon URL",
+        "default": "/collections/all"
+      },
+      {
+        "type": "url",
+        "id": "inbox_url",
+        "label": "Inbox icon URL",
+        "default": "/pages/contact"
       },
       {
         "type": "text",
@@ -301,6 +303,54 @@
         "id": "footer_link_3_url",
         "label": "Footer link 3 URL",
         "default": "/pages/about"
+      },
+      {
+        "type": "text",
+        "id": "footer_link_4_label",
+        "label": "Footer link 4 label",
+        "default": "Support"
+      },
+      {
+        "type": "url",
+        "id": "footer_link_4_url",
+        "label": "Footer link 4 URL",
+        "default": "/pages/support"
+      },
+      {
+        "type": "text",
+        "id": "footer_link_5_label",
+        "label": "Footer link 5 label",
+        "default": "Newsletter"
+      },
+      {
+        "type": "url",
+        "id": "footer_link_5_url",
+        "label": "Footer link 5 URL",
+        "default": "/pages/newsletter"
+      },
+      {
+        "type": "text",
+        "id": "footer_contact_heading",
+        "label": "Footer contact heading",
+        "default": "Contact"
+      },
+      {
+        "type": "textarea",
+        "id": "footer_contact_text",
+        "label": "Footer contact text",
+        "default": "Have questions? We're here to help."
+      },
+      {
+        "type": "text",
+        "id": "footer_contact_email",
+        "label": "Footer contact email",
+        "default": "support@example.com"
+      },
+      {
+        "type": "text",
+        "id": "footer_contact_phone",
+        "label": "Footer contact phone",
+        "default": "+1 (555) 123-4567"
       }
     ]
   },

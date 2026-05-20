@@ -9,8 +9,8 @@
     "logo_text": "Ziyu Development",
     "heading_font": "system",
     "body_font": "system",
-    "theme_mode": "dark",
-    "background_color": "#0a0a0a",
+    "theme_mode": "light",
+    "background_color": "#f4f4f6",
     "text_color": "#ffffff",
     "surface_color": "#111111",
     "border_color": "#222222",
@@ -39,6 +39,8 @@
     "nav_url_4": "/pages/contact",
     "nav_label_5": "Support",
     "nav_url_5": "/pages/support",
+    "shop_url": "/collections/all",
+    "inbox_url": "/pages/contact",
     "submenu_label": "Shop",
     "submenu_link_1_label": "All products",
     "submenu_link_1_url": "/collections/all",
@@ -61,6 +63,14 @@
     "footer_link_2_label": "Shop",
     "footer_link_2_url": "/collections/all",
     "footer_link_3_label": "About",
-    "footer_link_3_url": "/pages/about"
+    "footer_link_3_url": "/pages/about",
+    "footer_link_4_label": "Support",
+    "footer_link_4_url": "/pages/support",
+    "footer_link_5_label": "Newsletter",
+    "footer_link_5_url": "/pages/newsletter",
+    "footer_contact_heading": "Contact",
+    "footer_contact_text": "Have questions? We're here to help.",
+    "footer_contact_email": "support@example.com",
+    "footer_contact_phone": "+1 (555) 123-4567"
   }
 }

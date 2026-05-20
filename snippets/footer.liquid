@@ -6,10 +6,19 @@
     </div>
 
     <div>
-      <h4>Explore</h4>
+      <h4>Links</h4>
       <a href="{{ settings.footer_link_1_url | default: '/' }}">{{ settings.footer_link_1_label | default: 'Home' }}</a>
       <a href="{{ settings.footer_link_2_url | default: '/collections/all' }}">{{ settings.footer_link_2_label | default: 'Shop' }}</a>
       <a href="{{ settings.footer_link_3_url | default: '/pages/about' }}">{{ settings.footer_link_3_label | default: 'About' }}</a>
+      <a href="{{ settings.footer_link_4_url | default: '/pages/support' }}">{{ settings.footer_link_4_label | default: 'Support' }}</a>
+      <a href="{{ settings.footer_link_5_url | default: '/pages/newsletter' }}">{{ settings.footer_link_5_label | default: 'Newsletter' }}</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>{{ settings.footer_contact_heading | default: 'Contact' }}</h4>
+      <p>{{ settings.footer_contact_text | default: 'Have questions? We’re here to help.' }}</p>
+      <a href="mailto:{{ settings.footer_contact_email | default: 'support@example.com' }}">{{ settings.footer_contact_email | default: 'support@example.com' }}</a>
+      <a href="tel:{{ settings.footer_contact_phone | default: '+1 (555) 123-4567' }}">{{ settings.footer_contact_phone | default: '+1 (555) 123-4567' }}</a>
     </div>
   </div>
 
