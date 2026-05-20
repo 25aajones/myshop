@@ -416,12 +416,12 @@ nav a:hover {
 
 .btn-primary {
   background: var(--primary-color);
-  color: #000;
+  color: var(--primary-text);
 }
 
 .btn-secondary {
   border: 1px solid var(--secondary-color);
-  color: var(--page-text);
+  color: var(--secondary-text);
 }
 
 .section {
@@ -456,6 +456,7 @@ nav a:hover {
 .featured-categories .category-card,
 .footer-grid > div {
   background: var(--surface-bg);
+  color: var(--surface-text);
   border: 1px solid var(--border-color);
   border-radius: 24px;
   padding: 32px;

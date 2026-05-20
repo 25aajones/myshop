@@ -12,9 +12,12 @@
       --page-bg: {{ settings.background_color }};
       --page-text: {{ settings.text_color }};
       --surface-bg: {{ settings.surface_color }};
+      --surface-text: {{ settings.surface_text_color | default: '#ffffff' }};
       --border-color: {{ settings.border_color }};
       --primary-color: {{ settings.primary_color }};
+      --primary-text: {{ settings.primary_text_color | default: '#000000' }};
       --secondary-color: {{ settings.secondary_color }};
+      --secondary-text: {{ settings.secondary_text_color | default: '#ffffff' }};
       --heading-font: {{ settings.heading_font }};
       --body-font: {{ settings.body_font }};
     }

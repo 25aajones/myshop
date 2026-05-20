@@ -52,9 +52,27 @@
       },
       {
         "type": "color",
+        "id": "primary_text_color",
+        "label": "Primary action text",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
         "id": "secondary_color",
         "label": "Secondary accent",
         "default": "#10b981"
+      },
+      {
+        "type": "color",
+        "id": "secondary_text_color",
+        "label": "Secondary action text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "surface_text_color",
+        "label": "Surface text",
+        "default": "#ffffff"
       },
       {
         "type": "textarea",
