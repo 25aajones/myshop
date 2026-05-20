@@ -21,6 +21,17 @@
         "default": "system"
       },
       {
+        "type": "select",
+        "id": "theme_mode",
+        "label": "Theme mode",
+        "default": "dark",
+        "options": [
+          { "value": "dark", "label": "Dark" },
+          { "value": "light", "label": "Light" },
+          { "value": "auto", "label": "Auto (system preference)" }
+        ]
+      },
+      {
         "type": "color",
         "id": "background_color",
         "label": "Page background",
@@ -73,15 +84,78 @@
         "id": "surface_text_color",
         "label": "Surface text",
         "default": "#ffffff"
-      },
-      {
-        "type": "textarea",
-        "id": "footer_about",
-        "label": "Footer about text",
-        "default": "Apps, tech products, and modern digital experiences."
       }
     ]
   },
+  {
+    "name": "Light mode palette",
+    "settings": [
+      {
+        "type": "color",
+        "id": "light_background_color",
+        "label": "Light page background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "light_text_color",
+        "label": "Light page text",
+        "default": "#0a0a0a"
+      },
+      {
+        "type": "color",
+        "id": "light_surface_color",
+        "label": "Light surface background",
+        "default": "#f4f4f6"
+      },
+      {
+        "type": "color",
+        "id": "light_border_color",
+        "label": "Light border color",
+        "default": "#e5e7eb"
+      },
+      {
+        "type": "color",
+        "id": "light_primary_color",
+        "label": "Light primary accent",
+        "default": "#1f2937"
+      },
+      {
+        "type": "color",
+        "id": "light_primary_text_color",
+        "label": "Light primary action text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "light_secondary_color",
+        "label": "Light secondary accent",
+        "default": "#3b82f6"
+      },
+      {
+        "type": "color",
+        "id": "light_secondary_text_color",
+        "label": "Light secondary action text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "light_surface_text_color",
+        "label": "Light surface text",
+        "default": "#1f2937"
+      }
+    ]
+  },
+  {
+    "name": "Footer links",
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_link_1_label",
+        "label": "Footer link 1 label",
+        "default": "Home"
+      },
+
   {
     "name": "Header navigation",
     "settings": [

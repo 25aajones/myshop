@@ -8,19 +8,94 @@
   {{ content_for_header }}
 
   <style>
-    :root {
-      --page-bg: {{ settings.background_color }};
-      --page-text: {{ settings.text_color }};
-      --surface-bg: {{ settings.surface_color }};
-      --surface-text: {{ settings.surface_text_color | default: '#ffffff' }};
-      --border-color: {{ settings.border_color }};
-      --primary-color: {{ settings.primary_color }};
-      --primary-text: {{ settings.primary_text_color | default: '#000000' }};
-      --secondary-color: {{ settings.secondary_color }};
-      --secondary-text: {{ settings.secondary_text_color | default: '#ffffff' }};
-      --heading-font: {{ settings.heading_font }};
-      --body-font: {{ settings.body_font }};
-    }
+    {% assign theme_mode = settings.theme_mode | default: 'dark' %}
+    {% assign light_bg = settings.light_background_color | default: '#ffffff' %}
+    {% assign light_text = settings.light_text_color | default: '#0a0a0a' %}
+    {% assign light_surface = settings.light_surface_color | default: '#f4f4f6' %}
+    {% assign light_border = settings.light_border_color | default: '#e5e7eb' %}
+    {% assign light_primary = settings.light_primary_color | default: '#1f2937' %}
+    {% assign light_primary_text = settings.light_primary_text_color | default: '#ffffff' %}
+    {% assign light_secondary = settings.light_secondary_color | default: '#3b82f6' %}
+    {% assign light_secondary_text = settings.light_secondary_text_color | default: '#ffffff' %}
+    {% assign light_surface_text = settings.light_surface_text_color | default: '#1f2937' %}
+
+    {% assign dark_bg = settings.background_color | default: '#0a0a0a' %}
+    {% assign dark_text = settings.text_color | default: '#ffffff' %}
+    {% assign dark_surface = settings.surface_color | default: '#111111' %}
+    {% assign dark_border = settings.border_color | default: '#222222' %}
+    {% assign dark_primary = settings.primary_color | default: '#ffffff' %}
+    {% assign dark_primary_text = settings.primary_text_color | default: '#000000' %}
+    {% assign dark_secondary = settings.secondary_color | default: '#10b981' %}
+    {% assign dark_secondary_text = settings.secondary_text_color | default: '#ffffff' %}
+    {% assign dark_surface_text = settings.surface_text_color | default: '#ffffff' %}
+
+    {% if theme_mode == 'light' %}
+      :root {
+        color-scheme: light;
+        --page-bg: {{ light_bg }};
+        --page-text: {{ light_text }};
+        --surface-bg: {{ light_surface }};
+        --surface-text: {{ light_surface_text }};
+        --border-color: {{ light_border }};
+        --primary-color: {{ light_primary }};
+        --primary-text: {{ light_primary_text }};
+        --secondary-color: {{ light_secondary }};
+        --secondary-text: {{ light_secondary_text }};
+        --heading-font: {{ settings.heading_font }};
+        --body-font: {{ settings.body_font }};
+        --header-bg: rgba(255, 255, 255, 0.96);
+      }
+    {% elsif theme_mode == 'auto' %}
+      :root {
+        color-scheme: dark;
+        --page-bg: {{ dark_bg }};
+        --page-text: {{ dark_text }};
+        --surface-bg: {{ dark_surface }};
+        --surface-text: {{ dark_surface_text }};
+        --border-color: {{ dark_border }};
+        --primary-color: {{ dark_primary }};
+        --primary-text: {{ dark_primary_text }};
+        --secondary-color: {{ dark_secondary }};
+        --secondary-text: {{ dark_secondary_text }};
+        --heading-font: {{ settings.heading_font }};
+        --body-font: {{ settings.body_font }};
+        --header-bg: rgba(10, 10, 10, 0.92);
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          color-scheme: light;
+          --page-bg: {{ light_bg }};
+          --page-text: {{ light_text }};
+          --surface-bg: {{ light_surface }};
+          --surface-text: {{ light_surface_text }};
+          --border-color: {{ light_border }};
+          --primary-color: {{ light_primary }};
+          --primary-text: {{ light_primary_text }};
+          --secondary-color: {{ light_secondary }};
+          --secondary-text: {{ light_secondary_text }};
+          --heading-font: {{ settings.heading_font }};
+          --body-font: {{ settings.body_font }};
+          --header-bg: rgba(255, 255, 255, 0.96);
+        }
+      }
+    {% else %}
+      :root {
+        color-scheme: dark;
+        --page-bg: {{ dark_bg }};
+        --page-text: {{ dark_text }};
+        --surface-bg: {{ dark_surface }};
+        --surface-text: {{ dark_surface_text }};
+        --border-color: {{ dark_border }};
+        --primary-color: {{ dark_primary }};
+        --primary-text: {{ dark_primary_text }};
+        --secondary-color: {{ dark_secondary }};
+        --secondary-text: {{ dark_secondary_text }};
+        --heading-font: {{ settings.heading_font }};
+        --body-font: {{ settings.body_font }};
+        --header-bg: rgba(10, 10, 10, 0.92);
+      }
+    {% endif %}
   </style>
 
   {{ 'base.css' | asset_url | stylesheet_tag }}

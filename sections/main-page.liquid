@@ -7,6 +7,14 @@
           {{ page.content }}
         </div>
       {% endif %}
+
+      {% if section.settings.page_button_text != blank and section.settings.page_button_url != blank %}
+        <div class="button-group page-button-group">
+          <a href="{{ section.settings.page_button_url }}" class="btn {% if section.settings.page_button_style == 'secondary' %}btn-secondary{% else %}btn-primary{% endif %}">
+            {{ section.settings.page_button_text }}
+          </a>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -26,6 +34,28 @@
       "id": "show_page_content",
       "label": "Show page content",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "page_button_text",
+      "label": "Button text",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "page_button_url",
+      "label": "Button URL",
+      "default": "#"
+    },
+    {
+      "type": "select",
+      "id": "page_button_style",
+      "label": "Button style",
+      "default": "primary",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" }
+      ]
     }
   ],
   "presets": [

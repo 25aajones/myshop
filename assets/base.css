@@ -1,5 +1,5 @@
 :root {
-  color-scheme: dark;
+  color-scheme: var(--color-scheme, dark);
   font-family: var(--body-font, Arial, sans-serif);
   background-color: var(--page-bg);
   color: var(--page-text);
@@ -139,7 +139,7 @@ img {
   top: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(10, 10, 10, 0.92);
+  background: var(--header-bg, rgba(10, 10, 10, 0.92));
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
 }
@@ -359,6 +359,10 @@ nav a:hover {
   gap: 16px;
 }
 
+.page-button-group {
+  margin-top: 32px;
+}
+
 .not-found-card {
   background: var(--surface-bg);
   border: 1px solid var(--border-color);
@@ -390,12 +394,20 @@ nav a:hover {
   padding: 14px 18px;
   border-radius: 14px;
   border: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-bg);
   color: var(--page-text);
 }
 
 .search-form button {
   min-width: 130px;
+}
+
+.btn,
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 .btn {
@@ -406,12 +418,17 @@ nav a:hover {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 700;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.95;
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-1px);
+  opacity: 0.98;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -420,8 +437,14 @@ nav a:hover {
 }
 
 .btn-secondary {
+  background: transparent;
   border: 1px solid var(--secondary-color);
-  color: var(--secondary-text);
+  color: var(--secondary-color);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: rgba(59, 130, 246, 0.08);
 }
 
 .section {
@@ -442,7 +465,8 @@ nav a:hover {
 .section-title p {
   max-width: 760px;
   margin: 18px auto 0;
-  color: rgba(255, 255, 255, 0.74);
+  color: var(--page-text);
+  opacity: 0.78;
   line-height: 1.75;
 }
 
@@ -497,7 +521,8 @@ nav a:hover {
 .footer a {
   display: block;
   margin-top: 10px;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--surface-text);
+  opacity: 0.86;
   text-decoration: none;
 }
 
@@ -508,7 +533,8 @@ nav a:hover {
 .copyright {
   text-align: center;
   margin-top: 40px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--surface-text);
+  opacity: 0.68;
 }
 
 .newsletter-card {
@@ -584,7 +610,8 @@ nav a:hover {
 
 .feature-card p,
 .testimonial-card p {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--surface-text);
+  opacity: 0.88;
   line-height: 1.8;
 }
 
@@ -612,7 +639,8 @@ nav a:hover {
 }
 
 .testimonial-card .testimonial-role {
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--surface-text);
+  opacity: 0.72;
 }
 
 .custom-html-card {
@@ -620,7 +648,7 @@ nav a:hover {
 }
 
 .custom-html-card .rich-text {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--surface-text);
   line-height: 1.9;
 }
 
@@ -638,7 +666,7 @@ nav a:hover {
 .faq-item {
   border: 1px solid var(--border-color);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface-bg);
   overflow: hidden;
 }
 
@@ -666,7 +694,8 @@ nav a:hover {
 
 .faq-answer {
   padding: 0 24px 24px;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--surface-text);
+  opacity: 0.88;
   line-height: 1.9;
 }
 
@@ -711,7 +740,8 @@ nav a:hover {
 }
 
 .marketing-copy p {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--surface-text);
+  opacity: 0.88;
   margin-bottom: 22px;
   line-height: 1.8;
 }
@@ -729,7 +759,7 @@ nav a:hover {
   padding: 16px 18px;
   border-radius: 14px;
   border: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--surface-bg);
   color: var(--page-text);
 }
 
@@ -760,7 +790,8 @@ nav a:hover {
 
 .about-copy p {
   margin-bottom: 28px;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--surface-text);
+  opacity: 0.92;
   line-height: 1.8;
 }
 
@@ -846,7 +877,8 @@ nav a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--surface-text);
+  opacity: 0.72;
   margin-bottom: 28px;
 }
 
@@ -866,7 +898,8 @@ nav a:hover {
 }
 
 .product-description {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--surface-text);
+  opacity: 0.92;
   line-height: 1.9;
 }
 
