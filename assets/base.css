@@ -430,6 +430,51 @@ nav a:hover {
   justify-content: flex-end;
 }
 
+.page-blocks {
+  display: grid;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.page-block {
+  background: var(--surface-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 26px;
+  padding: 32px;
+}
+
+.page-text-block .rich-text,
+.page-feature-block p {
+  color: var(--surface-text);
+  opacity: 0.92;
+  line-height: 1.85;
+}
+
+.page-image-block img {
+  width: 100%;
+  border-radius: 22px;
+  display: block;
+  object-fit: cover;
+}
+
+.page-feature-block {
+  display: grid;
+  gap: 18px;
+}
+
+.page-feature-block h3 {
+  margin: 0;
+  font-family: var(--heading-font, inherit);
+}
+
+.page-button-block {
+  text-align: center;
+}
+
+.page-button-block .btn {
+  min-width: 180px;
+}
+
 .not-found-card {
   background: var(--surface-bg);
   border: 1px solid var(--border-color);

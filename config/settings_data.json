@@ -10,15 +10,15 @@
     "heading_font": "system",
     "body_font": "system",
     "theme_mode": "light",
-    "background_color": "#f4f4f6",
-    "text_color": "#ffffff",
-    "surface_color": "#111111",
-    "border_color": "#222222",
-    "primary_color": "#ffffff",
-    "primary_text_color": "#000000",
-    "secondary_color": "#10b981",
+    "background_color": "#ffffff",
+    "text_color": "#0a0a0a",
+    "surface_color": "#ffffff",
+    "border_color": "#e5e7eb",
+    "primary_color": "#1f2937",
+    "primary_text_color": "#ffffff",
+    "secondary_color": "#2563eb",
     "secondary_text_color": "#ffffff",
-    "surface_text_color": "#ffffff",
+    "surface_text_color": "#111111",
     "light_background_color": "#ffffff",
     "light_text_color": "#0a0a0a",
     "light_surface_color": "#f4f4f6",
@@ -71,6 +71,7 @@
     "footer_contact_heading": "Contact",
     "footer_contact_text": "Have questions? We're here to help.",
     "footer_contact_email": "support@example.com",
-    "footer_contact_phone": "+1 (555) 123-4567"
+    "footer_contact_phone": "+1 (555) 123-4567",
+    "cart_url": "/cart"
   }
 }

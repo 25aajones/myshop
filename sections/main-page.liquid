@@ -18,6 +18,37 @@
           </a>
         </div>
       {% endif %}
+
+      {% if section.blocks.size > 0 %}
+        <div class="page-blocks">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'text' %}
+                <div class="page-block page-text-block">
+                  <div class="rich-text">{{ block.settings.text_content }}</div>
+                </div>
+              {% when 'image' %}
+                <div class="page-block page-image-block">
+                  {% if block.settings.image != blank %}
+                    <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="{{ block.settings.image_alt | escape }}">
+                  {% endif %}
+                </div>
+              {% when 'feature' %}
+                <div class="page-block page-feature-block">
+                  <span class="eyebrow">{{ block.settings.feature_label }}</span>
+                  <h3>{{ block.settings.feature_heading }}</h3>
+                  <p>{{ block.settings.feature_text }}</p>
+                </div>
+              {% when 'button' %}
+                <div class="page-block page-button-block">
+                  <a href="{{ block.settings.button_url }}" class="btn {% if block.settings.button_style == 'secondary' %}btn-secondary{% else %}btn-primary{% endif %}">
+                    {{ block.settings.button_text }}
+                  </a>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -68,12 +99,6 @@
       ]
     },
     {
-      "type": "url",
-      "id": "page_button_url",
-      "label": "Button URL",
-      "default": "#"
-    },
-    {
       "type": "select",
       "id": "page_button_style",
       "label": "Button style",
@@ -84,6 +109,90 @@
       ]
     }
   ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text_content",
+          "label": "Text content",
+          "default": "Add a rich content block for page storytelling, instructions, or feature copy."
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text",
+          "default": "Page image"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Feature block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_label",
+          "label": "Feature label",
+          "default": "Feature"
+        },
+        {
+          "type": "text",
+          "id": "feature_heading",
+          "label": "Feature heading",
+          "default": "Highlight a capability"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_text",
+          "label": "Feature text",
+          "default": "Use this section to showcase a page-level benefit, service detail, or product highlight."
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL",
+          "default": "#"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button style",
+          "default": "primary",
+          "options": [
+            { "value": "primary", "label": "Primary" },
+            { "value": "secondary", "label": "Secondary" }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
   "presets": [
     {
       "name": "Main page"

@@ -35,43 +35,43 @@
         "type": "color",
         "id": "background_color",
         "label": "Page background",
-        "default": "#0a0a0a"
+        "default": "#ffffff"
       },
       {
         "type": "color",
         "id": "text_color",
         "label": "Page text",
-        "default": "#ffffff"
+        "default": "#0a0a0a"
       },
       {
         "type": "color",
         "id": "surface_color",
         "label": "Section surface",
-        "default": "#111111"
+        "default": "#ffffff"
       },
       {
         "type": "color",
         "id": "border_color",
         "label": "Border color",
-        "default": "#222222"
+        "default": "#e5e7eb"
       },
       {
         "type": "color",
         "id": "primary_color",
         "label": "Primary accent",
-        "default": "#ffffff"
+        "default": "#1f2937"
       },
       {
         "type": "color",
         "id": "primary_text_color",
         "label": "Primary action text",
-        "default": "#000000"
+        "default": "#ffffff"
       },
       {
         "type": "color",
         "id": "secondary_color",
         "label": "Secondary accent",
-        "default": "#10b981"
+        "default": "#2563eb"
       },
       {
         "type": "color",
@@ -214,6 +214,12 @@
         "id": "shop_url",
         "label": "Shop icon URL",
         "default": "/collections/all"
+      },
+      {
+        "type": "url",
+        "id": "cart_url",
+        "label": "Cart icon URL",
+        "default": "/cart"
       },
       {
         "type": "url",
