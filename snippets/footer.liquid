@@ -22,7 +22,8 @@
     </div>
   </div>
 
-  <div class="copyright">
-    © {{ 'now' | date: '%Y' }} {{ settings.logo_text | default: shop.name }}
+  <div class="footer-bottom">
+    <span>© {{ 'now' | date: '%Y' }} {{ settings.logo_text | default: shop.name }}</span>
+    <span><a href="/policies/privacy-policy">Privacy policy</a> · <a href="/policies/terms-of-service">Terms of service</a></span>
   </div>
 </footer>
